@@ -1,0 +1,6 @@
+base_config: configs/lora_r16.yaml
+grid:
+  lora.r: [8, 16, 32]
+  training.learning_rate: [1.0e-4, 2.0e-4, 5.0e-4]
+  training.epochs: [1, 3, 5]
+# Full grid is 27 runs; the sweep runner supports --max-runs to sample.

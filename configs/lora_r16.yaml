@@ -1,0 +1,23 @@
+run_name: legal-clauses-lora-r16
+seed: 13
+base_model: meta-llama/Meta-Llama-3-8B-Instruct
+quantization: 4bit                # QLoRA for consumer GPUs
+lora:
+  r: 16
+  alpha: 32                       # 2x rank
+  dropout: 0.05
+  target_modules: [q_proj, v_proj]
+training:
+  learning_rate: 2.0e-4
+  epochs: 3
+  per_device_batch_size: 4
+  gradient_accumulation: 4
+  warmup_ratio: 0.03
+  early_stopping_patience: 2      # checkpoints without val improvement
+  checkpoint_every_steps: 50
+data:
+  train: data/train.jsonl
+  val: data/val.jsonl
+tracking:
+  backend: wandb                  # or mlflow; offline mode logs to runs/
+  project: lora-legal-clauses
