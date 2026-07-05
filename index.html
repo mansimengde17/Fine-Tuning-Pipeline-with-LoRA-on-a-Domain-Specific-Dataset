@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>LoRA Fine-Tuning Pipeline | Live Demo</title>
-<meta name="description" content="A leakage-safe dataset builder, config-driven QLoRA training with tracking and early stopping, a hyperparameter sweep, and a benchmark that proves the adapter beats the base model without forgetting.">
+<meta name="description" content="A leakage safe dataset builder, config driven QLoRA training with tracking and early stopping, a hyperparameter sweep, and a benchmark that proves the adapter beats the base model without forgetting.">
 <style>
 :root {
   --accent: #8f6bff;
@@ -120,7 +120,7 @@ footer a { color: var(--accent); text-decoration: none; }
 <header>
   <div class="kicker">Reproducible model customization</div>
   <h1>LoRA Fine-Tuning Pipeline</h1>
-  <p class="tagline">A leakage-safe dataset builder, config-driven QLoRA training with tracking and early stopping, a hyperparameter sweep, and a benchmark that proves the adapter beats the base model without forgetting.</p>
+  <p class="tagline">A leakage safe dataset builder, config driven QLoRA training with tracking and early stopping, a hyperparameter sweep, and a benchmark that proves the adapter beats the base model without forgetting.</p>
   <div class="cta">
     <a class="primary" href="#demo">Run the live demo</a>
     <a class="ghost" href="#architecture">Architecture</a>
@@ -131,7 +131,7 @@ footer a { color: var(--accent); text-decoration: none; }
 <section id="demo">
   <h2>Live interactive demo</h2>
   <p class="sub">This simulation runs the system's real decision logic
-  directly in your browser. Run the training simulation: loss curves, early stopping, then the base-versus-fine-tuned benchmark.</p>
+  directly in your browser. Run the training simulation: loss curves, early stopping, then the base versus tuned benchmark.</p>
   <div class="panel">
     <div class="sim-controls" id="controls"></div>
     <div class="sim-stage" id="stage"></div>
@@ -142,11 +142,11 @@ footer a { color: var(--accent); text-decoration: none; }
   <h2>Architecture</h2>
   <p class="sub">How a request moves through the system.</p>
   <div class="arch">
-    <div class="step"><div class="n">1</div><div><b>Dataset builder</b><p>Legal clause classification examples in instruction format; splits are template-level so no near-duplicate ever leaks from train into test.</p></div></div>
-    <div class="step"><div class="n">2</div><div><b>Config-driven training</b><p>PEFT plus TRL with QLoRA 4-bit; rank 16, alpha 32, dropout 0.05 as the documented baseline. Every run is reproducible from its YAML alone.</p></div></div>
+    <div class="step"><div class="n">1</div><div><b>Dataset builder</b><p>Legal clause classification examples in instruction format; splits are template level so no near duplicate ever leaks from train into test.</p></div></div>
+    <div class="step"><div class="n">2</div><div><b>Config driven training</b><p>PEFT plus TRL with QLoRA 4-bit; rank 16, alpha 32, dropout 0.05 as the documented baseline. Every run is reproducible from its YAML alone.</p></div></div>
     <div class="step"><div class="n">3</div><div><b>Sweep</b><p>Rank, learning rate, and epochs swept on a grid; the leaderboard drives the final configuration choice.</p></div></div>
-    <div class="step"><div class="n">4</div><div><b>Honest evaluation</b><p>The base model scores the benchmark first; the adapter runs the identical protocol, reported with per-category deltas, improvements, and regressions.</p></div></div>
-    <div class="step"><div class="n">5</div><div><b>Forgetting check</b><p>General-capability probes run on both models; a significant drop fails the run.</p></div></div>
+    <div class="step"><div class="n">4</div><div><b>Honest evaluation</b><p>The base model scores the benchmark first; the adapter runs the identical protocol, reported with per category deltas, improvements, and regressions.</p></div></div>
+    <div class="step"><div class="n">5</div><div><b>Forgetting check</b><p>General capability probes run on both models; a significant drop fails the run.</p></div></div>
     <div class="step"><div class="n">6</div><div><b>Deployment</b><p>The adapter exports at under 100 MB and serves behind an A/B comparison endpoint next to the base model.</p></div></div>
   </div>
 </section>
